@@ -4,10 +4,6 @@
 
 rm(list = ls()) # clear global workspace
 
-# Set working directory to read in data set (this will need to be changed for different computers/users) ----
-
-setwd("Z:/Credit Benchmark/Data/Phoebe/Archive/Exploratory Data Analysis")
-
 # Load in data ----
 
 data <- read.table("household_power_consumption.txt", header = T, sep = ";", comment.char = "%", stringsAsFactors = F, na.strings = "?")
@@ -40,5 +36,3 @@ dev.off()
 }
 
 plot3()
-
-# plot3.png will be saved in setwd() location
