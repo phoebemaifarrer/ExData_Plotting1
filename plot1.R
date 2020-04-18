@@ -6,13 +6,15 @@ rm(list = ls()) # clear global workspace
 
 # Load in data ----
 
-data <- read.table("household_power_consumption.txt", header = T, sep = ";", comment.char = "%", stringsAsFactors = F, na.strings = "?")
-dim(data) # checking I have loaded in the full data set
-head(data) # checking the format of the columns in the data set
+# I previously subsetted the larger data set for just dates 1/2/2007 & 2/2/2007 to make the txt data file smaller for ease of commiting.
+# I did this with the below commented out steps.
 
-# Subset the data set to only be the interest dats i.e. 2007-02-01 and 2007-02-02 ----
+#data <- read.table("household_power_consumption.txt", header = T, sep = ";", comment.char = "%", stringsAsFactors = F, na.strings = "?")
+#data_subset <- subset(data, Date == "1/2/2007" | Date == "2/2/2007")
 
-data_subset <- subset(data, Date == "1/2/2007" | Date == "2/2/2007")
+data_subset <- read.table("household_power_consumption.txt", header = T, sep = ",", comment.char = "%", stringsAsFactors = F, na.strings = "?")
+dim(data_subset) # checking I have loaded in the full data set
+head(data_subset) # checking the format of the columns in the data set
 
 # Format the data and time columns (for plot 2, 3, and 4) ----
 
