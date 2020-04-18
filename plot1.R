@@ -2,6 +2,8 @@
 # By Phoebe Farrer
 # 18-04-2020
 
+rm(list = ls()) # clear global workspace
+
 # Set working directory to read in data set (this will need to be changed for different computers/users) ----
 
 setwd("Z:/Credit Benchmark/Data/Phoebe/Archive/Exploratory Data Analysis")
@@ -21,3 +23,16 @@ data_subset <- subset(data, Date == "1/2/2007" | Date == "2/2/2007")
 data_subset$DateTimeStamp <- strptime(paste(data_subset$Date, data_subset$Time, sep = " "), "%d/%m/%Y %H:%M:%S")
 
 # Plot 1 ----
+
+plot1 <- function() {
+  
+hist(data_subset$Global_active_power, col = "red", xlab = "Global Active Power(kilowatts)", ylab = "Frequency", main = "Global Active Power")
+
+dev.copy(png, file = "plot1.png", width = 480, height = 480)
+
+dev.off()
+}
+
+plot1()
+
+# plot1.png will be saved in setwd() location
